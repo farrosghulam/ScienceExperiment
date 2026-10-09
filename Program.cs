@@ -5,9 +5,18 @@ do
     Console.WriteLine("Please enter the temperature (must be between -50 and 150): ");
     temp = int.Parse(Console.ReadLine());
 
+    if (temp < -50 || temp > 150)
+    {
+        Console.WriteLine("Invalid input. Temperature must be between -50 and 150! Please try again...");
+    }
+    else
+    {
+        Console.WriteLine($"Temperature recorded: {temp} °C");
+    }
+
    switch (temp)
     {
-        case < 0:
+        case < 0 and >= -50:
             Console.WriteLine("Category: Freezing");
             break;
         case >= 0 and <= 31:
@@ -19,9 +28,7 @@ do
         case > 100 and <= 150:
             Console.WriteLine("Category: Extremely Hot");
             break;
-        default:
-            Console.WriteLine("Invalid input. Temperature must be between -50 and 150! Please try again...");
-            break;  
-    }
-} while (temp < -50 || temp > 150);
+    }        
+} 
+while (temp < -50 || temp > 150);
 
